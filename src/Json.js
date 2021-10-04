@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 class Json extends React.Component {
   constructor() {
     super();
@@ -74,20 +75,26 @@ class Json extends React.Component {
     let datas = this.state.datas;
     return (
       <div>
-        <h1>Crud Apllication</h1>
+        <h1 className="modify">Crud Apllication</h1>
         <form ref="myForm">
-          <label>Name</label>
+          <label className="modify">Name</label>
           <input type="text" ref="name" placeholder="enter name" />
-          <label>Email</label>
+          <label className="modify">Email</label>
           <input type="email" ref="email" placeholder="enter email" />
-          <button onClick={(e) => this.SubmitData(e)}>Submit</button>
+          <button onClick={(e) => this.SubmitData(e)} className="clr">
+            Submit
+          </button>
         </form>
         <div>
           {datas.map((item, i) => (
             <div key={i}>
               {i + 1}.{item.name},{item.email}
-              <button onClick={() => this.Edit(i)}>edit</button>
-              <button onClick={() => this.Remove(i)}>Remove</button>
+              <button onClick={() => this.Edit(i)} className="clr">
+                edit
+              </button>
+              <button onClick={() => this.Remove(i)} className="clr">
+                Remove
+              </button>
             </div>
           ))}
         </div>
