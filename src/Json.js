@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Form, Button } from "react-bootstrap";
 import "./style.css";
 class Json extends React.Component {
   constructor() {
@@ -75,7 +76,29 @@ class Json extends React.Component {
     let datas = this.state.datas;
     return (
       <div>
-        <h1 className="modify">Crud Apllication</h1>
+        <Container>
+          <Form ref="myForm">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="name" ref="name" placeholder="Enter name" />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref="email" placeholder="Email" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={(e) => this.SubmitData(e)}>
+              Submit
+            </Button>
+          </Form>
+        </Container>
+        {/* <h1 className="modify">Crud Apllication</h1>
         <form ref="myForm">
           <label className="modify">Name</label>
           <input type="text" ref="name" placeholder="enter name" />
@@ -84,17 +107,27 @@ class Json extends React.Component {
           <button onClick={(e) => this.SubmitData(e)} className="clr">
             Submit
           </button>
-        </form>
+        </form> */}
         <div>
           {datas.map((item, i) => (
             <div key={i}>
               {i + 1}.{item.name},{item.email}
-              <button onClick={() => this.Edit(i)} className="clr">
+              <Button
+                style={{ marginRight: 16 }}
+                variant="primary"
+                type="submit"
+                onClick={() => this.Edit(i)}
+              >
                 edit
-              </button>
-              <button onClick={() => this.Remove(i)} className="clr">
+              </Button>
+              <Button
+                style={{ marginRight: 16 }}
+                variant="primary"
+                type="submit"
+                onClick={() => this.Remove(i)}
+              >
                 Remove
-              </button>
+              </Button>
             </div>
           ))}
         </div>
