@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-//import Practice2 from "./States/Practice2";
-import Json from "./Json";
-// import Practice from "./States/Practice1";
-import Header from "./laylouts/header";
+import Header from "./component/Header";
+import Prop from "./component/Prop";
 function App() {
+  const [user, setUser] = useState();
+
+  const inputChange = (email, password) => {
+    setUser({ email, password });
+  };
+  console.log(user);
   return (
     <div>
       <Header />
-      <Json />
-      {/* <Practice /> */}
-      {/* <Practice2 text={{ name: "aditya" }} /> */}
+      <Prop callBack={inputChange} />
     </div>
   );
 }
